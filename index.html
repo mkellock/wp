@@ -1,91 +1,229 @@
 <!DOCTYPE html>
 <html lang='en'>
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- meta http-equiv="X-Frame-Options" content="deny" -->
-    <title>My First Webpage</title>
 
-    <!-- Stylesheets, you can have more than one. -->
-    <link id='wireframecss' type="text/css" rel="stylesheet" href="wireframe.css"/>
-    <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
-    <link id='testcss' type="text/css" rel="stylesheet" href="testing.css">
-    
-    <!-- Javascript, you can have more than one. -->
-    <script src='wireframe.js'></script>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- meta http-equiv="X-Frame-Options" content="deny" -->
+  <title>My First Webpage</title>
 
-  </head>
+  <!-- Stylesheets, you can have more than one. -->
+  <link id='wireframecss' type="text/css" rel="stylesheet" href="wireframe.css" />
+  <link id='stylecss' type="text/css" rel="stylesheet" href="style.css">
+  <link id='testcss' type="text/css" rel="stylesheet" href="testing.css">
+  <link id='testcss' type="text/css" rel="stylesheet" href="baker.css">
 
-  <body>
+  <!-- Javascript, you can have more than one. -->
+  <script src='wireframe.js'></script>
 
-    <header>
-      <!-- Image sourced from www.rmit.edu.au for educational purposes only -->
-      <div><img src='media/RMIT-Logo.png' alt='RMIT University logo' height=80 />Matthew Kellock
+</head>
+
+<body>
+
+  <header>
+    <!-- Image sourced from www.rmit.edu.au for educational purposes only -->
+    <div><img src='media/RMIT-Logo.png' alt='RMIT University logo' height=80 />Matthew Kellock
+    </div>
+  </header>
+
+  <nav>
+    Assignments:
+    <!-- link locations: relative to current directory -->
+    <ul>
+      <li><a href="a2/index.php" target="_blank">A2</a></li>
+      <li><a href="a3/index.php" target="_blank">A3</a></li>
+      <li><a href="a4/index.php" target="_blank">A4</a></li>
+    </ul> |
+    <!-- link locations: relative to e54061's public_html directory -->
+    <a href="/~e54061/wp/lectures" target="_blank">Lectures 0 - 11</a> |
+    <a href="/~e54061/secure" target="_blank">Secure Resources Area</a> |
+    <!-- link location: external -->
+    <a href='https://drive.google.com/open?id=1uSRn6PHDcpsUtmFQ6MPMM-g2go4o22VP' target="_blank"
+      rel="noopener noreferrer">WPOUA-Public</a>
+  </nav>
+
+  <main>
+    <article id='about-me'>
+      <h2>About me</h2>
+      <p>
+        <img src='media/avatar.png' width='200' alt='my photo' />
+      </p>
+      <section id="more-about-me">
+        <div>Who is your tutor / instructor</div>
+        <div>Trevor Reynolds</div>
+
+        <div>Who is your labber / workshopper</div>
+        <div>No one yet</div>
+
+        <div>Have you any programming or web design experience?</div>
+        <div>Extensive, I started as a web developer in the 90's, try building
+          a website for 800 x 600 monitors that works over dial-up, it ain't
+          fun.</div>
+
+        <div>Do you see yourself as a programmer or designer, or both?</div>
+        <div>My development days are ending, I work with dev teams now,
+          leading projects. However, I still love to code, so programmer if
+          I’m forced to choose one.</div>
+
+        <div>What has brought you to this course at RMIT?</div>
+        <div>I want to go on to Masters courses in IT management, ultimately
+          to work as a CTO, so a degree will help with admission, plus, it's
+          always irked me that I don't have a degree.</div>
+
+        <div>What are you hoping to get out of the course?</div>
+        <div>I'm interested in HTML 5, last time I did any serious HTML
+          development work was back in the day when Flash was still a thing.
+          Nowadays it tends to be React whenever I need to do front end work,
+          but generally using someone else’s components, with HTML/React to
+          bind them together and layout a webpage, nothing exciting, just
+          forms work.</div>
+
+        <div>What websites do you use the most? (NB: "family friendly" !)</div>
+        <div>Lol, "family friendly," I love memes on Reddit and am a huge fan
+          of YouTube, either watching some stupid video, catching up on the
+          news or learning something new.</div>
+
+        <div>Do you have any interests or hobbies?</div>
+        <div>It sounds like a cliché, but I love learning, especially about
+          new technology advancements and engineering team dynamics. It's one
+          of my most favourite parts of this industry, you are never bored,
+          and always have something new to sink your teeth into. I enjoy
+          gaming, but am terrible at it, and I have two crazy young boys, one
+          in the picture.</div>
+      </section>
+    </article>
+    <aside>
+      <div>Deprecated code sample.</div>
+    </aside>
+    <article id='project'>
+      <p>Thank you for the opportunity to provide a proposal for the site
+        dedicated to Douglas Raymond Baker, a fascinating person who is
+        certainly worthy of his story being told.</p>
+      <p>As the internet and its accompanying technologies, software,
+        frameworks, design patterns, and end user requirements shift overtime,
+        sometimes rapidly, the highlighted issues below are common to many
+        aging sites today.</p>
+      <p>I hope you find this information of value and look forward to
+        assisting in continuing Mr Baker’s story.</p>
+      <h3>Analysis</h3>
+      <p>A manual inspection of the site identified:</p>
+      <div class="rightfloat">
+        <!-- I haven't resized the image on purpose, this is so it renders with maximum DPI on high-DPI screens -->
+        <img src="media/iPhone7.png" alt="Douglas Raymond Baker on an iPhone 7" class="phoneimage" />
+        <p class="smalltext">Fig 1: Douglas Raymond Baker on an iPhone 7</p>
       </div>
-    </header>
-
-    <nav>
-      Assignments:
-      <!-- link locations: relative to current directory -->
       <ul>
-        <li><a href="a2/index.php" target="_blank">A2</a></li>
-        <li><a href="a3/index.php" target="_blank">A3</a></li>
-        <li><a href="a4/index.php" target="_blank">A4</a></li>
-      </ul> |
-      <!-- link locations: relative to e54061's public_html directory -->
-      <a href="/~e54061/wp/lectures" target="_blank">Lectures 0 - 11</a> |
-      <a href="/~e54061/secure" target="_blank">Secure Resources Area</a> | 
-      <!-- link location: external -->
-       <a href='https://drive.google.com/open?id=1uSRn6PHDcpsUtmFQ6MPMM-g2go4o22VP' target="_blank" rel="noopener noreferrer">WPOUA-Public</a>
-    </nav>
+        <li>The skeuomorphic design represented by yellow and sandy backgrounds is now considered by many as a legacy
+          design pattern. Skeuomorphic designs occupy valuable screen real estate and/or mindshare, particularly on
+          mobile devices. Skeuomorphism offers little to help the user digest the content more productively, and
+          although may fit the theme of the content, may ultimately detract from the messaging</li>
+        <li>The site lacks a responsive design, simply scaling to screen size, rather than repositioning elements such
+          as nav and content to suit the end user’s device. See figure 1 for an example of how the site scales on an
+          iPhone 7, the most widely used iPhone on the market<sup><a href="#bm1">1</a></sup></li>
+        <li>The ubiquitous use of deprecated and superfluous HTML code should
+          be avoided, including tags such as &#x201C;&#x3C;font&#x3E;&#x201D; and attributes such as
+          &#x201C;cellspacing.&#x201D; These elements may be potentially unsupported in future browser versions,
+          breaking the site’s readability and/or functionality</li>
+        <li>Use of tables to format the layout is semantically incorrect and can cause issues for assistive readers used
+          by the vision impaired. Additionally, there are many missing tags that would support assistive readers </li>
+        <li>There is an inconsistent use of styling norms in the site’s construction, the site utilises predefined CSS
+          stylesheets where dictated by the templated design, however, uses HTML formatting for the page content</li>
+        <li>Use of deprecated web design elements such as a sitemap and non-floating menu</li>
+        <li>Large, non-paginated and continuous bodies of text, leading to potentially poor readability</li>
+        <li>Although the search functionality provided by Google is excellent, it relies on the user knowing what they
+          are looking for, additionally, menu and page navigation is done so categorically, seeming built with the
+          assumption that the end user knows what they are looking for</li>
+      </ul>
+      <p>Utilising automated site analysis tooling, I have identified:</p>
+      <ul>
+        <li>6,300 major bugs with the HTML</li>
+        <li>1,100 minor bugs with the HTML</li>
+        <li>199 code vulnerabilities</li>
+        <li>3,000 major code smells</li>
+      </ul>
+      <p>The following bugs, vulnerabilities, and &#x201C;code smells&#x201D; were identified as part of the automated
+        analysis:</p>
+      <ul>
+        <li>Elements and attributes deprecated in HTML5 should not be used, with 5,400 instances of deprecated elements
+          or attributes</li>
+        <li>There are several CSS tags with blank file references</li>
+        <li>&#x201C;aria-label&#x201D; or &#x201C;aria-labelledby&#x201D; attributes should be used to differentiate
+          similar elements to support screen reading software for the visually impaired</li>
+        <li>&#x201C;&#x3C;table&#x3E;&#x201D; tags should have a description, again supporting screen reading software
+          for the visually impaired</li>
+        <li>Tables should have headers which supports those using assistive technologies to navigate tabular data</li>
+        <li>&#x201C;&#x3C;strong&#x3E;&#x201D; and &#x201C;&#x3C;em&#x3E;&#x201D; tags should be used as opposed to
+          &#x201C;&#x3C;b&#x3E;&#x201D; tags as these convey semantic meaning rather than simply formatting text</li>
+        <li>&#x201C;&#x3C;html&#x3E;&#x201D; element should have a language attribute, again helping assistive
+          technologies and search engine optimisation</li>
+        <li>Links with &#x201C;target=_blank&#x201D; should configured to prevent phishing attacks</li>
+        <li>Image, area, and button with image tags should have an &#x201C;alt&#x201D; attribute</li>
+        <li>&#x201C;&#x3C;title&#x3E;&#x201D; should be present in all pages</li>
+        <li>Links should not directly target images</li>
+      </ul>
+      <h3>Proposal</h3>
+      <p>I have identified three major areas the site needs development in below:</p>
+      <ul>
+        <li>Due to the enormous growth in mobile usage over the past decade, and equal decline in desktop
+          usage<sup><a href="#bm2">2</a></sup>, we have seen screen sizes and dimensions vary wildly<sup><a
+              href="#bm3">3</a></sup>. To meet the needs of end users that could potentially be on any screen dimension
+          and size, the website is in dire need of a responsive design. This would reposition and scale content to best
+          suit the device the site is being consumed on, allowing for a better experience reading its content</li>
+        <li>With an estimated 575,000 blind people in Australia, 70% of these above the age of 65<sup><a
+              href="#bm4">4</a></sup>, it is highly likely that a portion of the site’s visitors are vision impaired. A
+          site design to scale to any device screen and work with assistive technologies like screen readers, would
+          enable a visitor to have a much more productive visit</li>
+        <li>Lastly, implementing an aesthetically modern design, replacing the skeuomorphism in favour of a layout
+          that is representative of the shifts in user tastes, whilst still being respectful of the site’s content,
+          would help ensure readership of its content and easier navigation of the site. This can be bolstered by
+          pagination of the site’s content, allowing users to break up their reading into smaller consumable portions
+        </li>
+      </ul>
+      <p>I thank you for the opportunity to provide an analysis and proposal for Mr Baker’s site, it is a fascinating
+        bit of history, and I hope to aid in its future public education.</p>
+      <p>Regards,</p>
+      <p>Matt Kellock</p>
+      <hr>
+      <ol>
+        <li id="bm1" class="smalltext">DeviceAtlas. 2020. The Most Popular iPhones - 2019. [online] Available at:
+          <a href="https://deviceatlas.com/blog/most-popular-iphones" target="_blank"
+            rel="noopener noreferrer">https://deviceatlas.com/blog/most-popular-iphones</a> [Accessed 18 June 2020]</li>
+        <li id="bm2" class="smalltext">StatCounter Global Stats. 2020. Desktop Vs Mobile Vs Tablet Vs Console Market
+          Share Australia |
+          StatCounter
+          Global Stats. [online] Available at:
+          <a href="https://gs.statcounter.com/platform-market-share/all/australia/#yearly-2009-2020" target="_blank"
+            rel="noopener noreferrer">https://gs.statcounter.com/platform-market-share/all/australia/#yearly-2009-2020</a>
+          [Accessed 18 June 2020]</li>
+        <li id="bm3" class="smalltext">StatCounter Global Stats. 2020. Screen Resolution Stats Australia | StatCounter
+          Global Stats.
+          [online]
+          Available at: <a
+            href="https://gs.statcounter.com/screen-resolution-stats/all/australia/#monthly-201807-202006-bar"
+            target="_blank"
+            rel="noopener noreferrer">https://gs.statcounter.com/screen-resolution-stats/all/australia/#monthly-201807-202006-bar</a>
+          [Accessed 18 June 2020]</li>
+        <li id="bm4" class="smalltext">Vision 2020 Australia. 2020. A Snapshot Of Blindness And Low Vision Services In
+          Australia - Vision
+          2020
+          Australia. [online] Available at:
+          <a href="https://www.vision2020australia.org.au/resources/a-snapshot-of-blindness-and-low-vision-services-in-australia"
+            target="_blank"
+            rel="noopener noreferrer">https://www.vision2020australia.org.au/resources/a-snapshot-of-blindness-and-low-vision-services-in-australia</a>
+          [Accessed 18 June 2020]</li>
+      </ol>
+    </article>
+  </main>
 
-    <main>
-      <article id='about-me'>
-        <h2>About me</h2>
-        <p>
-          <img src='media/avatar.png' width='200' alt='my photo' />
-        </p>
-        <section id="more-about-me">
-          <div>Who is your tutor / instructor</div>
-          <div>Trevor Reynolds</div>
+  <footer>
+    &copy; Matthew Kellock
+    <script>
+      document.write(new Date().getFullYear());
+    </script>.
+    <a href='https://www.linkedin.com/in/mkellock/'' target=' _blank' rel='noopener noreferrer'>LinkedIn</a> <button
+      id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button>
+  </footer>
 
-          <div>Who is your labber / workshopper</div>
-          <div>No one yet</div>
+</body>
 
-          <div>Have you any programming or web design experience?</div>
-          <div>Extensive, I started as a web developer in the 90's, try building a website for 800 x 600 monitors that works over dial-up, it ain't fun.</div>
-
-          <div>Do you see yourself as a programmer or designer, or both?</div>
-          <div>My development days are ending, I work with dev teams now, leading projects. However, I still love to code, so programmer if I’m forced to choose one.</div>
-
-          <div>What has brought you to this course at RMIT?</div>
-          <div>I want to go on to Masters courses in IT management, ultimately to work as a CTO, so a degree will help with admission, plus, it's always irked me that I don't have a degree.</div>
-
-          <div>What are you hoping to get out of the course?</div>
-          <div>I'm interested in HTML 5, last time I did any serious HTML development work was back in the day when Flash was still a thing. Nowadays it tends to be React whenever I need to do front end work, but generally using someone else’s components, with HTML/React to bind them together and layout a webpage, nothing exciting, just forms work.</div>
-
-          <div>What websites do you use the most? (NB: "family friendly" !)</div>
-          <div>Lol, "family friendly," I love memes on Reddit and am a huge fan of YouTube, either watching some stupid video, catching up on the news or learning something new.</div>
-
-          <div>Do you have any interests or hobbies?</div>
-          <div>It sounds like a cliché, but I love learning, especially about new technology advancements and engineering team dynamics. It's one of my most favourite parts of this industry, you are never bored, and always have something new to sink your teeth into. I enjoy gaming, but am terrible at it, and I have two crazy young boys, one in the picture.</div>
-        </section>
-      </article>
-      <aside>
-        <div>Deprecated code sample.</div>
-      </aside>
-      <article id='project'>
-        <p>In this space you are asked to compose a website analysis and redevelopment proposal for the website found at this location:<br><a href='https://www.sites.google.com/site/anzacdouglasraymondbaker' target='_blank' rel='noopener noreferrer'>ANZAC Douglas Raymond Baker - Letters Home</a></p>
-      </article>
-    </main>
-
-    <footer>
-      &copy; Matthew Kellock
-      <script>
-        document.write(new Date().getFullYear());
-      </script>.
-      <a href='https://www.linkedin.com/in/mkellock/'' target='_blank' rel='noopener noreferrer'>LinkedIn</a> <button id='toggleWireframeCSS' onclick='toggleWireframe()'>Toggle Wireframe CSS</button>
-    </footer>
-    
-  </body>
 </html>

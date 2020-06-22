@@ -1,0 +1,14 @@
+.smalltext {
+	font-size: small;
+}
+
+.phoneimage {
+	width: 100%;
+	height: auto;
+}
+
+.rightfloat {
+	width: 275px;
+	float: right;
+	margin-left: 20px;
+}

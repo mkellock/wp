@@ -1,1 +1,240 @@
 /* Insert your styles here */
+
+/* Fonts used in the site */
+@font-face {
+	font-family: 'Plantin';
+	src: url('Fonts/Plantin/Plantin.eot');
+	src: url('Fonts/Plantin/Plantin.eot?#iefix') format('embedded-opentype'),
+		url('Fonts/Plantin/Plantin.woff2') format('woff2'), url('Fonts/Plantin/Plantin.woff') format('woff'),
+		url('Fonts/Plantin/Plantin.ttf') format('truetype'), url('Fonts/Plantin/Plantin.svg#Plantin') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Homemade Apple';
+	src: url('Fonts/HomemadeApple/HomemadeApple-Regular.eot');
+	src: url('Fonts/HomemadeApple/HomemadeApple-Regular.eot?#iefix') format('embedded-opentype'),
+		url('Fonts/HomemadeApple/HomemadeApple-Regular.woff2') format('woff2'),
+		url('Fonts/HomemadeApple/HomemadeApple-Regular.woff') format('woff'),
+		url('Fonts/HomemadeApple/HomemadeApple-Regular.ttf') format('truetype'),
+		url('Fonts/HomemadeApple/HomemadeApple-Regular.svg#HomemadeApple-Regular') format('svg');
+	font-weight: normal;
+	font-style: normal;
+	font-display: swap;
+}
+
+@font-face {
+	font-family: 'Ubuntu';
+	src: url('Fonts/Ubuntu/Ubuntu-Medium.eot');
+	src: url('Fonts/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
+		url('Fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'), url('Fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'),
+		url('Fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
+		url('Fonts/Ubuntu/Ubuntu-Medium.svg#Ubuntu-Medium') format('svg');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Default styling for body */
+:root {
+	--vermilion: hsla(0, 100%, 90%, 1);
+	--gunmetal: hsla(211, 44%, 22%, 1);
+	--charcoal: hsla(207, 42%, 27%, 1);
+	--sage: hsla(49, 23%, 72%, 1);
+	--deep-champagne: hsla(41, 40%, 95%, 1);
+}
+
+body {
+	font-family: Plantin;
+	background-color: var(--vermilion);
+}
+
+/* Default styling for the header */
+header {
+	position: fixed;
+	top: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	height: 150px;
+
+	background: url(Images/header.jpg) center left no-repeat;
+	background-size: cover;
+
+	vertical-align: bottom;
+
+	font-family: 'Homemade Apple';
+	text-shadow: 2px 2px 4px var(--charcoal);
+
+	color: var(--deep-champagne);
+
+	border: 1px solid black;
+}
+
+header div {
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	padding: 10px;
+}
+
+header span {
+	white-space: nowrap;
+}
+
+/* Default styling for the footer */
+footer {
+	text-align: center;
+	font-family: Ubuntu;
+	font-size: 10pt;
+	border: 1px solid var(--gunmetal);
+	padding: 10px;
+}
+
+/* Default styling for the nav bar */
+nav {
+	top: 0px;
+	right: 0px;
+	position: fixed;
+	display: flex;
+	align-items: flex-start;
+	background-color: var(--charcoal);
+	border: 1px solid var(--gunmetal);
+}
+
+nav a {
+	text-decoration: none;
+	font-family: Ubuntu;
+	color: inherit;
+}
+
+/* Default styling for menu items */
+nav .menu,
+.hamburger {
+	height: 40px;
+	display: flex;
+	padding-left: 5px;
+	padding-right: 5px;
+	color: var(--sage);
+	white-space: nowrap;
+}
+
+nav .menu:hover,
+.hamburger:hover {
+	background-color: var(--sage);
+	color: var(--charcoal);
+	cursor: pointer;
+}
+
+nav .hamburger {
+	align-items: center;
+	justify-content: flex-end;
+}
+
+nav .hamburger div {
+	margin-right: 16px;
+}
+
+/* Default styling for articles */
+article {
+    margin: 180px 25px 25px 25px;
+}
+
+article a {
+	color: var(--gunmetal);
+}
+
+article a:hover {
+	color: var(--deep-champagne);
+    background-color: var(--gunmetal);
+    border-radius: 5px;
+}
+
+/* Responsive behaviour for mobile screens */
+@media only screen and (max-width: 900px) {
+	nav {
+		flex-direction: column;
+		justify-content: flex-end;
+	}
+
+	header {
+		font-size: 15pt;
+	}
+
+	nav .menu {
+		border-top: 1px;
+		border-bottom: 0px;
+		border-right: 0px;
+		border-left: 0px;
+		border-color: var(--gunmetal);
+		border-style: solid;
+	}
+
+	/* Hide mobile menu */
+	nav .menu_hide {
+		display: none;
+	}
+
+	nav .hamburger_hide {
+		width: 50px;
+	}
+
+	/* Display mobile menu */
+	nav .menu_show,
+	.hamburger_show {
+		width: 200px;
+	}
+
+	nav .menu_show {
+		align-items: center;
+		justify-content: flex-start;
+	}
+
+	.divider {
+		display: none;
+	}
+}
+
+/* Responsive behaviour for desktop and tablet screens */
+@media only screen and (min-width: 900px) {
+	nav {
+		width: -webkit-calc(100% - 2px);
+		width: -moz-calc(100% - 2px);
+		width: calc(100% - 2px);
+		left: 0px;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	header {
+		font-size: 22pt;
+	}
+
+	nav .menu:not(:first-child) {
+		border-top: 0px;
+		border-bottom: 0px;
+		border-right: 0px;
+		border-left: 1px;
+		border-color: var(--gunmetal);
+		border-style: solid;
+	}
+
+	nav .hamburger {
+		display: none;
+	}
+
+	nav .menu {
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		width: 100%;
+		max-width: 200px;
+		min-width: 100px;
+	}
+
+	.break {
+		display: none;
+	}
+}

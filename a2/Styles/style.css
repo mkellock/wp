@@ -3,10 +3,10 @@
 /* Fonts used in the site */
 @font-face {
 	font-family: 'Plantin';
-	src: url('Fonts/Plantin/Plantin.eot');
-	src: url('Fonts/Plantin/Plantin.eot?#iefix') format('embedded-opentype'),
-		url('Fonts/Plantin/Plantin.woff2') format('woff2'), url('Fonts/Plantin/Plantin.woff') format('woff'),
-		url('Fonts/Plantin/Plantin.ttf') format('truetype'), url('Fonts/Plantin/Plantin.svg#Plantin') format('svg');
+	src: url('../Fonts/Plantin/Plantin.eot');
+	src: url('../Fonts/Plantin/Plantin.eot?#iefix') format('embedded-opentype'),
+		url('../Fonts/Plantin/Plantin.woff2') format('woff2'), url('Fonts/Plantin/Plantin.woff') format('woff'),
+		url('../Fonts/Plantin/Plantin.ttf') format('truetype'), url('Fonts/Plantin/Plantin.svg#Plantin') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -14,12 +14,12 @@
 
 @font-face {
 	font-family: 'Homemade Apple';
-	src: url('Fonts/HomemadeApple/HomemadeApple-Regular.eot');
-	src: url('Fonts/HomemadeApple/HomemadeApple-Regular.eot?#iefix') format('embedded-opentype'),
-		url('Fonts/HomemadeApple/HomemadeApple-Regular.woff2') format('woff2'),
-		url('Fonts/HomemadeApple/HomemadeApple-Regular.woff') format('woff'),
-		url('Fonts/HomemadeApple/HomemadeApple-Regular.ttf') format('truetype'),
-		url('Fonts/HomemadeApple/HomemadeApple-Regular.svg#HomemadeApple-Regular') format('svg');
+	src: url('../Fonts/HomemadeApple/HomemadeApple-Regular.eot');
+	src: url('../Fonts/HomemadeApple/HomemadeApple-Regular.eot?#iefix') format('embedded-opentype'),
+		url('../Fonts/HomemadeApple/HomemadeApple-Regular.woff2') format('woff2'),
+		url('../Fonts/HomemadeApple/HomemadeApple-Regular.woff') format('woff'),
+		url('../Fonts/HomemadeApple/HomemadeApple-Regular.ttf') format('truetype'),
+		url('../Fonts/HomemadeApple/HomemadeApple-Regular.svg#HomemadeApple-Regular') format('svg');
 	font-weight: normal;
 	font-style: normal;
 	font-display: swap;
@@ -27,11 +27,11 @@
 
 @font-face {
 	font-family: 'Ubuntu';
-	src: url('Fonts/Ubuntu/Ubuntu-Medium.eot');
-	src: url('Fonts/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
-		url('Fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'), url('Fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'),
-		url('Fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
-		url('Fonts/Ubuntu/Ubuntu-Medium.svg#Ubuntu-Medium') format('svg');
+	src: url('../Fonts/Ubuntu/Ubuntu-Medium.eot');
+	src: url('../Fonts/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
+		url('../Fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'), url('Fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'),
+		url('../Fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
+		url('../Fonts/Ubuntu/Ubuntu-Medium.svg#Ubuntu-Medium') format('svg');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
@@ -60,7 +60,7 @@ header {
 	width: 100%;
 	height: 150px;
 
-	background: url(Images/header.jpg) center left no-repeat;
+	background: url(../Images/header.jpg) center left no-repeat;
 	background-size: cover;
 
 	vertical-align: bottom;
@@ -248,9 +248,5 @@ header .progress {
 
 	.break {
 		display: none;
-	}
-
-	header .progress {
-		visibility: hidden;
 	}
 }

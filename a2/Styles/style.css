@@ -29,7 +29,8 @@
 	font-family: 'Ubuntu';
 	src: url('../Fonts/Ubuntu/Ubuntu-Medium.eot');
 	src: url('../Fonts/Ubuntu/Ubuntu-Medium.eot?#iefix') format('embedded-opentype'),
-		url('../Fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'), url('Fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'),
+		url('../Fonts/Ubuntu/Ubuntu-Medium.woff2') format('woff2'),
+		url('Fonts/Ubuntu/Ubuntu-Medium.woff') format('woff'),
 		url('../Fonts/Ubuntu/Ubuntu-Medium.ttf') format('truetype'),
 		url('../Fonts/Ubuntu/Ubuntu-Medium.svg#Ubuntu-Medium') format('svg');
 	font-weight: 500;
@@ -88,7 +89,7 @@ header span {
 footer {
 	text-align: center;
 	font-family: Ubuntu;
-	font-size: 10pt;
+	font-size: calc(8px + 0.5vh);
 	border: 1px solid var(--gunmetal);
 	padding: 10px;
 }
@@ -140,6 +141,7 @@ nav .hamburger div {
 /* Default styling for articles */
 article {
 	margin: 180px 25px 25px 25px;
+	font-size: calc(10px + 1.25vh);
 }
 
 article a {
@@ -152,6 +154,12 @@ article a:hover {
 	border-radius: 5px;
 }
 
+article img {
+	border: 2px solid var(--gunmetal);
+	box-shadow: 4px 4px 4px var(--charcoal);
+	margin: 1vh;
+}
+
 /* Progress bar */
 header .progress {
 	background: linear-gradient(to right, var(--gunmetal) var(--scroll), var(--sage) 0);
@@ -162,6 +170,12 @@ header .progress {
 	top: 150px;
 	left: 0px;
 	right: 0px;
+}
+
+/* Images */
+article .home_page_baker {
+	float: right;
+	width: calc(15vh);
 }
 
 /* Responsive behaviour for mobile screens */
@@ -248,5 +262,11 @@ header .progress {
 
 	.break {
 		display: none;
+	}
+
+	article {
+		width: 80%;
+		margin-left: auto;
+		margin-right: auto;
 	}
 }

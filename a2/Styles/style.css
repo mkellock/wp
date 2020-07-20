@@ -161,10 +161,46 @@ article p.subtitle {
 	margin: 0px 15px 0px 15px;
 }
 
-article p.title {
-	font-size: 22pt;
+article h1,
+h2,
+h3,
+h4,
+h5,
+th,
+caption {
 	font-weight: bold;
 	font-family: Ubuntu;
+}
+
+article h1 {
+	font-size: 22pt;
+}
+
+article h2,
+caption {
+	font-size: 19pt;
+}
+
+article h3,
+th {
+	font-size: 16pt;
+}
+
+article th {
+	background-color: var(--sage);
+	text-align: left;
+}
+
+article tr {
+	font-size: 18px;
+}
+
+article tr:nth-child(odd) {
+	background-color: var(--vermilion);
+}
+
+article table {
+	width: 100%;
 }
 
 /* Progress bar */

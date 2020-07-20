@@ -44,6 +44,30 @@ function showMenu() {
 	menuToggled = true;
 }
 
+function showArticle(hash) {
+	// Default the hash to an empty string
+	if (hash == undefined) {
+		hash = '';
+	}
+
+	// If we're going to a page
+	if (hash.length > 0) {
+		// Show the page if the hash matches the id, else hide
+		document.querySelectorAll('article').forEach(function(article) {
+			article.style.display = article.id != hash ? 'none' : 'block';
+		});
+	} else {
+		// Else default to the home page
+		document.querySelectorAll('article').forEach(function(article) {
+			if (article.id == 'home') {
+				article.style.display = 'block';
+			} else {
+				article.style.display = 'none';
+			}
+		});
+	}
+}
+
 // Initialise the page's elements on window load
 window.onload = function() {
 	// Grab the menu elements
@@ -76,11 +100,17 @@ window.onload = function() {
 	// Set the menu items on click behaviour
 	document.querySelectorAll('.menu, article').forEach(function(menu) {
 		menu.onclick = function() {
+			// Hide the menu
 			hideMenu();
-			return false;
+
+			// Show the correct article
+			showArticle(new URL(this.firstChild.href).hash.replace('#', ''));
 		};
 	});
 
 	// Set the toggle wireframe behaviour
 	document.querySelector('#toggleWireframeCSS').onclick = toggleWireframe;
+
+	// Show the homepage/page specified in the URL
+	showArticle(window.location.hash.replace('#', ''));
 };

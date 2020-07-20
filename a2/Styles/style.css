@@ -161,6 +161,11 @@ article img {
 	margin: 5px;
 }
 
+article .subtitle {
+	font-size: 10pt;
+	margin: 0px 15px 0px 15px;
+}
+
 /* Progress bar */
 header .progress {
 	background: linear-gradient(to right, var(--gunmetal) var(--scroll), var(--sage) 0);
@@ -174,9 +179,13 @@ header .progress {
 }
 
 /* Images */
-article .home_page_baker {
+article .rightfloatbox {
 	float: right;
-	width: min(40vw, 200px);
+	width: min(40vw, 225px);
+}
+
+article .rightfloatbox img {
+	width: calc(100% - 20px);
 }
 
 /* Responsive behaviour for mobile screens */

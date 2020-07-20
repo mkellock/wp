@@ -100,11 +100,22 @@ window.onload = function() {
 	// Set the menu items on click behaviour
 	document.querySelectorAll('.menu, article').forEach(function(menu) {
 		menu.onclick = function() {
+			// Grab the hash
+			hash = new URL(this.firstChild.href).hash;
+
 			// Hide the menu
 			hideMenu();
 
 			// Show the correct article
-			showArticle(new URL(this.firstChild.href).hash.replace('#', ''));
+			showArticle(hash.replace('#', ''));
+
+			// Set page URL
+			window.location.hash = hash;
+
+			// Scroll to the top of the page
+			// Used https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
+			document.body.scrollTop = 0; // For Safari
+			document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 		};
 	});
 

@@ -69,6 +69,27 @@ function showArticle() {
 		});
 	}
 
+	if (hash == "comments") {
+		// Show the form
+		document.getElementById('contactForm').style.display = 'block';
+
+		// Hide the form successfully submitted message
+		document.getElementById('contactFormSuccess').style.display = 'none';
+
+		// Retrieve the form field values/reset the form
+		// Code referenced from https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+		document.getElementById('name').value = localStorage.getItem('Name');
+		document.getElementById('email').value = localStorage.getItem('EMail');
+		document.getElementById('mobile').value = localStorage.getItem('Mobile');
+		document.getElementById('subject').value = "";
+		document.getElementById('message').value = "";
+
+		if (document.getElementById('name').value.length > 0)
+			document.getElementById('remember').checked = true;
+		else
+			document.getElementById('remember').checked = false;
+	}
+
 	// Scroll to the top of the page
 	// Used https://www.w3schools.com/howto/howto_js_scroll_to_top.asp
 	document.body.scrollTop = 0; // For Safari
@@ -77,11 +98,22 @@ function showArticle() {
 
 function submitForm() {
 	// Hide the form
-	document.getElementById('contact').hidden = true;
+	document.getElementById('contactForm').style.display = 'none';
 
 	// Show the form successfully submitted message
-	document.getElementById('contactFormSuccess').display = block;
+	document.getElementById('contactFormSuccess').style.display = 'block';
 
+	// Set/clear the form field values
+	// Code referenced from https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
+	if (document.getElementById('remember').checked) {
+		localStorage.setItem('Name', document.getElementById('name').value);
+		localStorage.setItem('EMail', document.getElementById('email').value);
+		localStorage.setItem('Mobile', document.getElementById('mobile').value);
+	} else {
+		localStorage.removeItem('Name');
+		localStorage.removeItem('EMail');
+		localStorage.removeItem('Mobile');
+	}
 
 }
 

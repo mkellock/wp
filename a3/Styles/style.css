@@ -406,3 +406,90 @@ div.parallax15 {
 		display: none;
 	}
 }
+
+
+/* Form */
+form {
+	background: var(--sage);
+	border: 1px solid var(--gunmetal);
+	margin-top: 2rem;
+	max-width: 600px;
+	margin-left: auto;
+	margin-right: auto;
+	padding: 5px;
+	overflow: hidden
+}
+
+form * {
+	box-sizing: border-box;
+}
+
+form div:first-child {
+	width: 110px
+}
+
+form input,
+form button,
+form label {
+	height: 35px
+}
+
+form textarea {
+	height: 100px
+}
+
+form input:not([type="checkbox"]):not([type="button"]),
+form textarea,
+form div,
+form div:first-child label {
+	width: calc(100% - 10px);
+	float: left
+}
+
+form div:last-child {
+	float: right;
+	width: calc(100% - 110px)
+}
+
+form input,
+form textarea,
+form button {
+	background-color: var(--deep-champagne);
+	border: 1px solid var(--gunmetal)
+}
+
+form div:first-child label {
+	text-align: right
+}
+
+form input,
+form textarea,
+form button,
+form label {
+	float: left;
+	margin: 5px;
+	vertical-align: middle
+}
+
+form input,
+form button,
+form textarea {
+	padding: 10px;
+	font-family: Ubuntu;
+	font-size: 12px
+}
+
+form input:focus:not([type="checkbox"]),
+form textarea:focus,
+form button:focus {
+	outline: 3px solid var(--gunmetal)
+}
+
+form input[type="checkbox"] {
+	vertical-align: middle
+}
+
+form div span {
+	font-size: 18px;
+	vertical-align: middle
+}

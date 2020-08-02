@@ -75,6 +75,16 @@ function showArticle() {
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+function submitForm() {
+	// Hide the form
+	document.getElementById('contact').hidden = true;
+
+	// Show the form successfully submitted message
+	document.getElementById('contactFormSuccess').display = block;
+
+
+}
+
 // Initialise the page's elements on window load
 window.onload = function () {
 	// Grab the menu elements
@@ -120,4 +130,12 @@ window.onload = function () {
 
 	// Catch the change of page
 	window.addEventListener('hashchange', showArticle);
+
+	// Catch form submit
+	// Some of this JavaScript came from https://stackoverflow.com/questions/3350247/how-to-prevent-form-from-being-submitted
+	document.getElementById('contact').onsubmit = function (e) {
+		e.preventDefault();
+		submitForm();
+		return false;
+	};
 };

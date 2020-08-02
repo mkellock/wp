@@ -429,7 +429,7 @@ form div:first-child {
 }
 
 form input,
-form button,
+form submit,
 form label {
 	height: 35px
 }
@@ -438,7 +438,7 @@ form textarea {
 	height: 100px
 }
 
-form input:not([type="checkbox"]):not([type="button"]),
+form input:not([type="checkbox"]):not([type="submit"]),
 form textarea,
 form div,
 form div:first-child label {
@@ -453,7 +453,7 @@ form div:last-child {
 
 form input,
 form textarea,
-form button {
+form submit {
 	background-color: var(--deep-champagne);
 	border: 1px solid var(--gunmetal)
 }
@@ -464,7 +464,7 @@ form div:first-child label {
 
 form input,
 form textarea,
-form button,
+form submit,
 form label {
 	float: left;
 	margin: 5px;
@@ -472,7 +472,7 @@ form label {
 }
 
 form input,
-form button,
+form submit,
 form textarea {
 	padding: 10px;
 	font-family: Ubuntu;
@@ -481,7 +481,7 @@ form textarea {
 
 form input:focus:not([type="checkbox"]),
 form textarea:focus,
-form button:focus {
+form submit:focus {
 	outline: 3px solid var(--gunmetal)
 }
 
@@ -492,4 +492,8 @@ form input[type="checkbox"] {
 form div span {
 	font-size: 18px;
 	vertical-align: middle
+}
+
+#contactFormSuccess {
+	display: none;
 }

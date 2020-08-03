@@ -133,16 +133,6 @@ window.onload = function () {
 		document.querySelector('.progress').style.setProperty('--scroll', scroll + '%');
 	});
 
-	// Set the copyright content
-	document.querySelector('#copyright').innerHTML =
-		'&copy; ' +
-		new Date().getFullYear() +
-		' Matthew Kellock - s3812552 - Last modified ' +
-		new Date(document.lastModified).toLocaleDateString() +
-		' ' +
-		new Date(document.lastModified).toLocaleTimeString() +
-		'.';
-
 	// Set the hamburger menu onclick behaviour
 	document.querySelector('.hamburger').onclick = toggleMenu;
 

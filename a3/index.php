@@ -357,12 +357,11 @@
                 <input type="checkbox" name="remember" id="remember" />
                 <label for="remember"><span>Remember Me</span></label>
               </div>
-              <input type="submit" value="Submit" id="submitForm">
+              <input type="submit" value="Submit" name="submitForm" id="submitForm">
             </div>
           </form>
         </div>
-        <div id="contactFormSuccess"><p>Thank you, your message has been
-            submitted!</p></div>
+        <div id="contactFormSuccess"></div>
       </article>
       <article id="sitemap">
         <h1>Sitemap</h1>

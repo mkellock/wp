@@ -97,24 +97,82 @@ function showArticle() {
 }
 
 function submitForm() {
-	// Hide the form
-	document.getElementById('contactForm').style.display = 'none';
-
-	// Show the form successfully submitted message
-	document.getElementById('contactFormSuccess').style.display = 'block';
+	// Retrieve the form values
+	let name = document.getElementById('name').value;
+	let email = document.getElementById('email').value;
+	let mobile = document.getElementById('mobile').value;
+	let subject = document.getElementById('subject').value;
+	let message = document.getElementById('message').value;
+	let submit = document.getElementById('submitForm').value;
 
 	// Set/clear the form field values
 	// Code referenced from https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage
 	if (document.getElementById('remember').checked) {
-		localStorage.setItem('Name', document.getElementById('name').value);
-		localStorage.setItem('EMail', document.getElementById('email').value);
-		localStorage.setItem('Mobile', document.getElementById('mobile').value);
+		localStorage.setItem('Name', name);
+		localStorage.setItem('EMail', email);
+		localStorage.setItem('Mobile', mobile);
 	} else {
 		localStorage.removeItem('Name');
 		localStorage.removeItem('EMail');
 		localStorage.removeItem('Mobile');
 	}
 
+	// Code from https://www.w3schools.com/xml/ajax_xmlhttprequest_send.asp
+	// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURI
+	// and https://developer.mozilla.org/en-US/docs/Web/API/XMLHttpRequest/response
+	var xhr = new XMLHttpRequest();
+
+	// Set the callback
+	xhr.onreadystatechange = function () {
+		if (xhr.readyState === 4) {
+			var response = JSON.parse(xhr.response);
+
+			if (response.status == 0) {
+				// Hide the form
+				document.getElementById('contactForm').style.display = 'none';
+
+				// Show the form successfully submitted message
+				document.getElementById('contactFormSuccess').style.display = 'block';
+				document.getElementById('contactFormSuccess').innerText = response.message;
+			} else {
+				// Select the correct field and invalid it with the server-side message
+				switch (response.status) {
+					case 1:
+						document.getElementById('name').setCustomValidity(response.message);
+						break;
+					case 2:
+						document.getElementById('email').setCustomValidity(response.message);
+						break;
+					case 3:
+						document.getElementById('subject').setCustomValidity(response.message);
+						break;
+					case 4:
+						document.getElementById('message').setCustomValidity(response.message);
+						break;
+					case 5:
+						document.getElementById('mobile').setCustomValidity(response.message);
+						break;
+				}
+
+				document.getElementById('contact').reportValidity();
+			}
+		}
+	}
+
+	// Open the page and send the form contents
+	xhr.open("POST", "tools.php", true);
+	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+	xhr.send("name=" + encodeURI(name) +
+		"&email=" + encodeURI(email) +
+		"&mobile=" + encodeURI(mobile) +
+		"&subject=" + encodeURI(subject) +
+		"&message=" + encodeURI(message) +
+		"&submitForm=" + encodeURI(submit));
+
+}
+
+function clearCustomValidation() {
+	this.setCustomValidity("");
 }
 
 // Initialise the page's elements on window load
@@ -152,6 +210,13 @@ window.onload = function () {
 
 	// Catch the change of page
 	window.addEventListener('hashchange', showArticle);
+
+	// Set custom validation clearing behaviour
+	document.getElementById('name').oninput = clearCustomValidation;
+	document.getElementById('email').oninput = clearCustomValidation;
+	document.getElementById('mobile').oninput = clearCustomValidation;
+	document.getElementById('subject').oninput = clearCustomValidation;
+	document.getElementById('message').oninput = clearCustomValidation;
 
 	// Catch form submit
 	// Some of this JavaScript came from https://stackoverflow.com/questions/3350247/how-to-prevent-form-from-being-submitted

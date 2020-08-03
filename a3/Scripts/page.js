@@ -44,6 +44,7 @@ function showMenu() {
 	menuToggled = true;
 }
 
+// Handles showing the correct article
 function showArticle() {
 	let hash = window.location.hash.replace('#', '');
 
@@ -96,6 +97,7 @@ function showArticle() {
 	document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 
+// Handles form submissions
 function submitForm() {
 	// Retrieve the form values
 	let name = document.getElementById('name').value;
@@ -154,6 +156,7 @@ function submitForm() {
 						break;
 				}
 
+				// Trigger the form validation
 				document.getElementById('contact').reportValidity();
 			}
 		}
@@ -171,6 +174,7 @@ function submitForm() {
 
 }
 
+// Removes custom validation messages
 function clearCustomValidation() {
 	this.setCustomValidity("");
 }

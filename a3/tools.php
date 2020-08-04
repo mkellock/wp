@@ -30,27 +30,41 @@
     // Validate the name fields
     if (!strlen($name)) {
       echo '{"status":1,"message":"Please ensure the name field is populated and is a valid name."}';
+    
     // Validate the name fields
     } elseif (!strlen($email)) {
       echo '{"status":2,"message":"Please ensure the email field is populated and is a valid email address."}';
+    
     // Validate the name fields
     } elseif (!strlen($subject)) {
       echo '{"status":3,"message":"Please ensure the subject field is populated and in English."}';
+    
     // Validate the name fields
     } elseif (!strlen($message)) {
       echo '{"status":4,"message":"Please ensure the message field is populated and in English."}';
+    
     // Validate the name
     } elseif (!preg_match(NAME_REGEX, $name)) {
       echo '{"status":1,"message":"Please enter a valid name."}';
+    
     // Validate the email
     } else if (!preg_match(EMAIL_REGEX, $email)) {
       echo '{"status":2,"message":"Please enter a valid email address."}';
+    
     // Validate the mobile
     } else if (isset($email) && !preg_match(MOBILE_REGEX, $mobile)) {
       echo '{"status":5,"message":"Please enter a valid mobile number."}';
+    
     // Successful response
     } else {
       echo '{"status":0,"message":"Message sent successfully."}';
+
+      // Store the message
+      // Code inspired from https://www.php.net/manual/en/function.fputcsv.php
+      $fp = fopen('mail.txt', 'a');
+      fseek($fp, 0, SEEK_END);
+      fputcsv($fp, array($name, $email, $mobile, $subject, $message));
+      fclose($fp);
     }
 
     exit;

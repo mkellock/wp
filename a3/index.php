@@ -13,6 +13,7 @@
       crossorigin="anonymous"></script>
     <script src='../wireframe.js'></script>
     <script src="Scripts/page.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet"
       href="../wireframe.css" disabled>

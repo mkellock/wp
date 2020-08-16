@@ -62,7 +62,7 @@ function showArticle() {
 		document.querySelectorAll('article').forEach(function(article) {
 			article.style.display = article.id != hash ? 'none' : 'block';
 
-			if (hash.startsWith('letter') && article.id == hash) showLetter(hash);
+			if (hash.startsWith('letter-') && article.id == hash) showLetter(hash);
 		});
 	} else {
 		// Else default to the home page
@@ -248,7 +248,7 @@ function showLetter(hash) {
 	// Set the initial view
 	$('#envelope').removeAttr('style');
 	$('#envelope').css('display', 'block');
-	$('#lettercontents', letter).css('display', 'none');
+	$('.lettercontents', letter).css('display', 'none');
 
 	// On click event for envelope
 	document.getElementById('envelopefront').onclick = function() {
@@ -270,44 +270,46 @@ function openLetter(hash) {
 		left: (window.innerWidth - (window.innerWidth >= 920 ? 920 : window.innerWidth)) / 2
 	}, 1000, function() {
 		/* Display the letter */
-		$('#lettercontents', letter).css('display', 'flex');
+		$('.lettercontents', letter).css('display', 'flex');
 
 		/* Switch focus to the letter contents */
-		$('#lettercontents', letter).focus();
+		$('.lettercontents', letter).focus();
 
 		/* Grab initial positions and set initial variables */
-		let initialLetterPosition = $('#lettercontents', letter).position().top;
-		let initialLetterWidth = $('#lettercontents', letter).width();
+		let initialLetterPosition = $('.lettercontents', letter).position().top;
+		let initialLetterWidth = $('.lettercontents', letter).width();
 
 		/* Set the height of the letter contents and position it off stage */
-		$('#lettercontents', letter).css('width', initialLetterWidth);
-		$('#lettercontents', letter).css('top', window.innerHeight);
+		$('.lettercontents', letter).css('width', initialLetterWidth);
+		$('.lettercontents', letter).css('top', window.innerHeight);
 
 		/* Set the letter contents to an absolute position so we can animate it */
-		$('#lettercontents', letter).css('position', 'absolute');
+		$('.lettercontents', letter).css('position', 'absolute');
 
-		$('#lettercontents', letter).animate(
+		$('.lettercontents', letter).animate(
 			{
 				top: initialLetterPosition
 			},
 			2000,
 			function() {
-				$('#lettercontents', letter).css('position', '');
-			}
-		);
+				$('.lettercontents', letter).css('position', '');
+				$('.lettercontents', letter).css('width', '');
+				$('.lettercontents', letter).css('top', '');
 
-		$('#envelope').animate(
-			{
-				opacity: 0
-			},
-			2000,
-			function() {
-				$('#envelopeback').removeAttr('style');
-				$('#envelopeinner').removeAttr('style');
+				$('#envelope').animate(
+					{
+						opacity: 0
+					},
+					2000,
+					function() {
+						$('#envelopeback').removeAttr('style');
+						$('#envelopeinner').removeAttr('style');
 
-				$('#envelope').css('display', 'none');
+						$('#envelope').css('display', 'none');
 
-				document.getElementById('envelopefront').onclick = null;
+						document.getElementById('envelopefront').onclick = null;
+					}
+				);
 			}
 		);
 	});

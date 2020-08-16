@@ -244,9 +244,9 @@ article p.centeralign {
 	text-align: center;
 }
 
-article p.handwriting {
+p.handwriting {
 	font-family: 'Homemade Apple';
-	font-size: max(1.5vw, 13pt);
+	font-size: 16pt;
 }
 
 /* Parallax elements */
@@ -502,7 +502,7 @@ form div span {
 	display: none;
 }
 
-#lettercontents {
+.lettercontents {
 	border: 1px solid var(--charcoal);
 	padding: 2vw;
 	box-shadow: 4px 4px 4px var(--charcoal);
@@ -512,19 +512,21 @@ form div span {
 	background-color: var(--sage);
 }
 
-#lettersubcontents {
+.lettersubcontents {
 	overflow-y: scroll;
 	overflow-x: hidden;
 	padding: 2vw;
 }
 
 #envelope {
-	width: 50vw;
+	width: min(90%, 600px);
+	min-width: min(90%, 600px);
 	perspective: 1000px;
-	height: calc(50vw * 0.54);
+	height: 500px;
+	min-height: calc(50vw * 0.54);
 	position: absolute;
-	top: calc(100vh * 0.4);
-	left: 25vw;
+	top: calc(((100vh - calc(50vw * 0.54)) / 2) + 50px);
+	left: calc((100vw - min(90%, 600px)) / 2);
 	z-index: 10;
 	display: none;
 }

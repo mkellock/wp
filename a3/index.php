@@ -272,7 +272,7 @@
       </article>
       <article id="letters1915">
         <h1>Letters &ndash; 1915</h1>
-        <p><a href="#letter">Fort Tigne
+        <p><a href="#letter-fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
             Hospital, Malta, May 4th 1915</a></p>
       </article>
       <article id="letters1916">
@@ -294,19 +294,19 @@
       <article id="battles">
         <h1>Battles</h1>
         <h2>An Account of the Gallipoli Landing</h2>
-        <p><a href="#letter">Fort Tigne
+        <p><a href="#letter-fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
             Hospital, Malta, May 4th 1915</a></p>
         <h2>The &quot;Big Push&quot;</h2>
-        <p><a href="#somewhere-in-france-july-30th-1916">Somewhere in France,
+        <p><a href="#letter-somewhere-in-france-july-30th-1916">Somewhere in France,
             July 30th. 1916</a></p>
         <h2>Battle of Poziers</h2>
-        <p><a href="#somewhere-in-france-13th-aug-1916">Somewhere in France,
+        <p><a href="#letter-somewhere-in-france-13th-aug-1916">Somewhere in France,
             13th Aug. 1916</a></p>
         <h2>Getting Wounded, Again</h2>
-        <p><a href="#no-2-can-gen-hospital-france-nov-1st-17">No. 2 Can. Gen.
+        <p><a href="#letter-no-2-can-gen-hospital-france-nov-1st-17">No. 2 Can. Gen.
             Hospital, France. Nov. 1st. &rsquo;17</a></p>
         <h2>What it Takes to Win a Military Medal</h2>
-        <p><a href="#harrowby-camp-school-grantham">Harrowby Camp School,
+        <p><a href="#letter-harrowby-camp-school-grantham">Harrowby Camp School,
             Grantham</a></p>
       </article>
       <article id="places">
@@ -384,7 +384,7 @@
           <li><a href="#letters1914">Letters &ndash; 1914</a></li>
           <li><a href="#letters1915">Letters &ndash; 1915</a></li>
           <ul>
-            <li><a href="#letter">Fort Tigne
+            <li><a href="#letter-fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
                 Hospital, Malta, May 4th 1915</a></li>
           </ul>
           <li><a href="#letters1916">Letters &ndash; 1916</a></li>
@@ -402,7 +402,7 @@
           <li><a href="#letters1918">Letters &ndash; 1918</a></li>
           <li><a href="#battles">Battles</a></li>
           <ul>
-            <li><a href="#letter">Fort Tigne
+            <li><a href="#letter-fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
                 Hospital, Malta, May 4th 1915</a></li>
             <li><a href="#somewhere-in-france-july-30th-1916">Somewhere in
                 France, July 30th. 1916</a></li>
@@ -419,7 +419,7 @@
           <li><a href="#sitemap">Sitemap</a></li>
         </ul>
       </article>
-      <article id="letter">
+      <article id="letter-fort-tigne-hospital-malta-may-4th-1915">
         <h1>Fort Tigne Hospital, Malta, May 4th 1915</h1>
         <div id="lettercontents">
           <div id="lettersubcontents">
@@ -803,7 +803,7 @@
 </div>
           </div>
       </article>
-      <article id="somewhere-in-france-july-30th-1916">
+      <article id="letter-somewhere-in-france-july-30th-1916">
         <h1>Somewhere in France, July 30th. 1916</h1>
         <p class="handwriting rightalign">May 4th. 1915.</p>
         <p class="handwriting">Dear Mother,</p>
@@ -1182,7 +1182,7 @@
           at Gallipoli and what the papers said about it. I think we did our
           duty.</p>
       </article>
-      <article id="somewhere-in-france-13th-aug-1916">
+      <article id="letter-somewhere-in-france-13th-aug-1916">
         <h1>Somewhere in France, 13th Aug. 1916</h1>
         <p class="handwriting rightalign">13th August 1916.</p>
         <p class="handwriting">Dear Herb,</p>
@@ -1269,7 +1269,7 @@
         <p class="handwriting">Ray.</p>
         <p class="handwriting">We are going to win. D.R.B</p>
       </article>
-      <article id="no-2-can-gen-hospital-france-nov-1st-17">
+      <article id="letter-no-2-can-gen-hospital-france-nov-1st-17">
         <h1>No. 2 Can. Gen. Hospital, France. Nov. 1st. ’17</h1>
         <p class="handwriting rightalign">1st November 1917</p>
         <p class="handwriting">Dear May,</p>
@@ -1552,7 +1552,7 @@
         <p class="handwriting">Your affect. cousin,</p>
         <p class="handwriting">Ray.</p>
       </article>
-      <article id="harrowby-camp-school-grantham">
+      <article id="letter-harrowby-camp-school-grantham">
         <h1>Harrowby Camp School, Grantham</h1>
         <p class="handwriting rightalign">Harrowby Camp School, Grantham.</p>
         <p class="handwriting">Dear Mother,</p>

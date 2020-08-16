@@ -62,7 +62,7 @@ function showArticle() {
 		document.querySelectorAll('article').forEach(function(article) {
 			article.style.display = article.id != hash ? 'none' : 'block';
 
-			if (hash == 'letter' && article.id == hash) showLetter();
+			if (hash.startsWith('letter') && article.id == hash) showLetter(hash);
 		});
 	} else {
 		// Else default to the home page
@@ -241,17 +241,25 @@ window.onload = function() {
 	};
 };
 
-function showLetter() {
+function showLetter(hash) {
+	// Grab the letter
+	let letter = $('#' + hash);
+
 	// Set the initial view
 	$('#envelope').removeAttr('style');
 	$('#envelope').css('display', 'block');
-	$('#lettercontents').css('display', 'none');
+	$('#lettercontents', letter).css('display', 'none');
 
 	// On click event for envelope
-	document.getElementById('envelopefront').onclick = openLetter;
+	document.getElementById('envelopefront').onclick = function() {
+		openLetter(hash);
+	};
 }
 
-function openLetter() {
+function openLetter(hash) {
+	// Grab the letter
+	let letter = $('#' + hash);
+
 	/* Rotate the envelope and animate it off stage */
 	$('#envelopeinner').css('transform', 'rotateY(180deg)');
 
@@ -262,29 +270,29 @@ function openLetter() {
 		left: (window.innerWidth - (window.innerWidth >= 920 ? 920 : window.innerWidth)) / 2
 	}, 1000, function() {
 		/* Display the letter */
-		$('#lettercontents').css('display', 'flex');
+		$('#lettercontents', letter).css('display', 'flex');
 
 		/* Switch focus to the letter contents */
-		$('#lettercontents').focus();
+		$('#lettercontents', letter).focus();
 
 		/* Grab initial positions and set initial variables */
-		let initialLetterPosition = $('#lettercontents').position().top;
-		let initialLetterWidth = $('#lettercontents').width();
+		let initialLetterPosition = $('#lettercontents', letter).position().top;
+		let initialLetterWidth = $('#lettercontents', letter).width();
 
 		/* Set the height of the letter contents and position it off stage */
-		$('#lettercontents').css('width', initialLetterWidth);
-		$('#lettercontents').css('top', window.innerHeight);
+		$('#lettercontents', letter).css('width', initialLetterWidth);
+		$('#lettercontents', letter).css('top', window.innerHeight);
 
 		/* Set the letter contents to an absolute position so we can animate it */
-		$('#lettercontents').css('position', 'absolute');
+		$('#lettercontents', letter).css('position', 'absolute');
 
-		$('#lettercontents').animate(
+		$('#lettercontents', letter).animate(
 			{
 				top: initialLetterPosition
 			},
 			2000,
 			function() {
-				$('#lettercontents').css('position', '');
+				$('#lettercontents', letter).css('position', '');
 			}
 		);
 
@@ -304,36 +312,3 @@ function openLetter() {
 		);
 	});
 }
-
-/*
-function layoutTest() {
-	let pageHeight = 0;
-	let subParas = new Array();
-	let maxWidth = Math.floor($('#letter').width() / 210 * 297);
-
-	// Get all the p elements and extract them
-	let paras = $('#letter p').clone();
-	let paraHeights = new Array();
-
-	$('#letter p').each(function() {
-		paraHeights.push($(this).height());
-	});
-
-	// Clear the contents of the article
-	$('#letter').empty();
-
-	for (let i = 0; i < paras.length; i++) {
-		if (pageHeight + paraHeights[i] > maxWidth) {
-			$('#letter').append(
-				$('<div style="border: 5px solid #1C6EA4; height: ' + maxWidth + 'pt"></div>').append(subParas)
-			);
-
-			pageHeight = 0;
-			subParas = new Array();
-		}
-
-		subParas.push(paras[i]);
-		pageHeight += paraHeights[i];
-	}
-}
-*/

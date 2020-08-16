@@ -12,8 +12,8 @@
     <script src="https://kit.fontawesome.com/dcb908c6b2.js"
       crossorigin="anonymous"></script>
     <script src='../wireframe.js'></script>
-    <script src="Scripts/page.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="Scripts/page.js"></script>
     <!-- Keep wireframe.css for debugging, add your css to style.css -->
     <link id='wireframecss' type="text/css" rel="stylesheet"
       href="../wireframe.css" disabled>
@@ -44,6 +44,17 @@
       <div class="menu menu_hide"><a href="#sitemap">SITEMAP</a></div>
     </nav>
     <main>
+    <div id="envelope">
+      <div id="envelopeinner">
+        <div id="envelopefront">
+          <img src="Images/envelopefront.png" alt="Front of letter" class="envelopeimg">
+        </div>
+        <div id="envelopeback">
+          <img src="Images/envelopeback.png" alt="Back of letter" class="envelopeimg">
+        </div>
+        </div>
+</div>
+</div>
       <article id="home">
         <div>
           <h1>Hello and welcome</h1>
@@ -261,7 +272,7 @@
       </article>
       <article id="letters1915">
         <h1>Letters &ndash; 1915</h1>
-        <p><a href="#fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
+        <p><a href="#letter">Fort Tigne
             Hospital, Malta, May 4th 1915</a></p>
       </article>
       <article id="letters1916">
@@ -283,7 +294,7 @@
       <article id="battles">
         <h1>Battles</h1>
         <h2>An Account of the Gallipoli Landing</h2>
-        <p><a href="#fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
+        <p><a href="#letter">Fort Tigne
             Hospital, Malta, May 4th 1915</a></p>
         <h2>The &quot;Big Push&quot;</h2>
         <p><a href="#somewhere-in-france-july-30th-1916">Somewhere in France,
@@ -373,7 +384,7 @@
           <li><a href="#letters1914">Letters &ndash; 1914</a></li>
           <li><a href="#letters1915">Letters &ndash; 1915</a></li>
           <ul>
-            <li><a href="#fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
+            <li><a href="#letter">Fort Tigne
                 Hospital, Malta, May 4th 1915</a></li>
           </ul>
           <li><a href="#letters1916">Letters &ndash; 1916</a></li>
@@ -391,7 +402,7 @@
           <li><a href="#letters1918">Letters &ndash; 1918</a></li>
           <li><a href="#battles">Battles</a></li>
           <ul>
-            <li><a href="#fort-tigne-hospital-malta-may-4th-1915">Fort Tigne
+            <li><a href="#letter">Fort Tigne
                 Hospital, Malta, May 4th 1915</a></li>
             <li><a href="#somewhere-in-france-july-30th-1916">Somewhere in
                 France, July 30th. 1916</a></li>
@@ -408,8 +419,10 @@
           <li><a href="#sitemap">Sitemap</a></li>
         </ul>
       </article>
-      <article id="fort-tigne-hospital-malta-may-4th-1915">
+      <article id="letter">
         <h1>Fort Tigne Hospital, Malta, May 4th 1915</h1>
+        <div id="lettercontents">
+          <div id="lettersubcontents">
         <p class="handwriting rightalign">May 4th. 1915.</p>
         <p class="handwriting">Dear Mother,</p>
         <p class="handwriting">About six hundred of Australian wounded
@@ -787,6 +800,8 @@
           fighting
           at Gallipoli and what the papers said about it. I think we did our
           duty.</p>
+</div>
+          </div>
       </article>
       <article id="somewhere-in-france-july-30th-1916">
         <h1>Somewhere in France, July 30th. 1916</h1>

@@ -19,7 +19,7 @@ function hideMenu() {
 	hamburger.classList.add('hamburger_hide');
 
 	// Change the menu items attached classes
-	menus.forEach(function (menu) {
+	menus.forEach(function(menu) {
 		menu.classList.remove('menu_show');
 		menu.classList.add('menu_hide');
 	});
@@ -35,7 +35,7 @@ function showMenu() {
 	hamburger.classList.add('hamburger_show');
 
 	// Change the menu items attached classes
-	menus.forEach(function (menu) {
+	menus.forEach(function(menu) {
 		menu.classList.remove('menu_hide');
 		menu.classList.add('menu_show');
 	});
@@ -53,15 +53,20 @@ function showArticle() {
 		hash = '';
 	}
 
+	// Hide the letter
+	document.getElementById('envelope').style.display = 'none';
+
 	// If we're going to a page
 	if (hash.length > 0) {
 		// Show the page if the hash matches the id, else hide
-		document.querySelectorAll('article').forEach(function (article) {
+		document.querySelectorAll('article').forEach(function(article) {
 			article.style.display = article.id != hash ? 'none' : 'block';
+
+			if (hash == 'letter' && article.id == hash) showLetter();
 		});
 	} else {
 		// Else default to the home page
-		document.querySelectorAll('article').forEach(function (article) {
+		document.querySelectorAll('article').forEach(function(article) {
 			if (article.id == 'home') {
 				article.style.display = 'block';
 			} else {
@@ -70,7 +75,7 @@ function showArticle() {
 		});
 	}
 
-	if (hash == "comments") {
+	if (hash == 'comments') {
 		// Show the form
 		document.getElementById('contactForm').style.display = 'block';
 
@@ -82,13 +87,11 @@ function showArticle() {
 		document.getElementById('name').value = localStorage.getItem('Name');
 		document.getElementById('email').value = localStorage.getItem('EMail');
 		document.getElementById('mobile').value = localStorage.getItem('Mobile');
-		document.getElementById('subject').value = "";
-		document.getElementById('message').value = "";
+		document.getElementById('subject').value = '';
+		document.getElementById('message').value = '';
 
-		if (document.getElementById('name').value.length > 0)
-			document.getElementById('remember').checked = true;
-		else
-			document.getElementById('remember').checked = false;
+		if (document.getElementById('name').value.length > 0) document.getElementById('remember').checked = true;
+		else document.getElementById('remember').checked = false;
 	}
 
 	// Scroll to the top of the page
@@ -125,7 +128,7 @@ function submitForm() {
 	var xhr = new XMLHttpRequest();
 
 	// Set the callback
-	xhr.onreadystatechange = function () {
+	xhr.onreadystatechange = function() {
 		if (xhr.readyState === 4) {
 			var response = JSON.parse(xhr.response);
 
@@ -160,33 +163,40 @@ function submitForm() {
 				document.getElementById('contact').reportValidity();
 			}
 		}
-	}
+	};
 
 	// Open the page and send the form contents
-	xhr.open("POST", "tools.php", true);
-	xhr.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
-	xhr.send("name=" + encodeURI(name) +
-		"&email=" + encodeURI(email) +
-		"&mobile=" + encodeURI(mobile) +
-		"&subject=" + encodeURI(subject) +
-		"&message=" + encodeURI(message) +
-		"&submitForm=" + encodeURI(submit));
-
+	xhr.open('POST', 'tools.php', true);
+	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
+	xhr.send(
+		'name=' +
+			encodeURI(name) +
+			'&email=' +
+			encodeURI(email) +
+			'&mobile=' +
+			encodeURI(mobile) +
+			'&subject=' +
+			encodeURI(subject) +
+			'&message=' +
+			encodeURI(message) +
+			'&submitForm=' +
+			encodeURI(submit)
+	);
 }
 
 // Removes custom validation messages
 function clearCustomValidation() {
-	this.setCustomValidity("");
+	this.setCustomValidity('');
 }
 
 // Initialise the page's elements on window load
-window.onload = function () {
+window.onload = function() {
 	// Grab the menu elements
 	hamburger = document.querySelector('.hamburger');
 	menus = document.querySelectorAll('.menu');
 
 	// Attach the scrolling behaviour
-	document.addEventListener('scroll', function () {
+	document.addEventListener('scroll', function() {
 		scroll =
 			(document.documentElement['scrollTop'] || document.body['scrollTop']) /
 			((document.documentElement['scrollHeight'] || document.body['scrollHeight']) -
@@ -199,8 +209,8 @@ window.onload = function () {
 	document.querySelector('.hamburger').onclick = toggleMenu;
 
 	// Set the menu items on click behaviour
-	document.querySelectorAll('.menu, article').forEach(function (menu) {
-		menu.onclick = function () {
+	document.querySelectorAll('.menu, article').forEach(function(menu) {
+		menu.onclick = function() {
 			// Hide the menu
 			hideMenu();
 		};
@@ -224,9 +234,106 @@ window.onload = function () {
 
 	// Catch form submit
 	// Some of this JavaScript came from https://stackoverflow.com/questions/3350247/how-to-prevent-form-from-being-submitted
-	document.getElementById('contact').onsubmit = function (e) {
+	document.getElementById('contact').onsubmit = function(e) {
 		e.preventDefault();
 		submitForm();
 		return false;
 	};
 };
+
+function showLetter() {
+	// Set the initial view
+	$('#envelope').removeAttr('style');
+	$('#envelope').css('display', 'block');
+	$('#lettercontents').css('display', 'none');
+
+	// On click event for envelope
+	document.getElementById('envelopefront').onclick = openLetter;
+}
+
+function openLetter() {
+	/* Rotate the envelope and animate it off stage */
+	$('#envelopeinner').css('transform', 'rotateY(180deg)');
+
+	$('#envelope').delay(1000).animate({
+		top: window.innerHeight - 50,
+		width: window.innerWidth >= 920 ? 920 : window.innerWidth,
+		height: (window.innerWidth >= 920 ? 920 : window.innerWidth) * 0.54,
+		left: (window.innerWidth - (window.innerWidth >= 920 ? 920 : window.innerWidth)) / 2
+	}, 1000, function() {
+		/* Display the letter */
+		$('#lettercontents').css('display', 'flex');
+
+		/* Switch focus to the letter contents */
+		$('#lettercontents').focus();
+
+		/* Grab initial positions and set initial variables */
+		let initialLetterPosition = $('#lettercontents').position().top;
+		let initialLetterWidth = $('#lettercontents').width();
+
+		/* Set the height of the letter contents and position it off stage */
+		$('#lettercontents').css('width', initialLetterWidth);
+		$('#lettercontents').css('top', window.innerHeight);
+
+		/* Set the letter contents to an absolute position so we can animate it */
+		$('#lettercontents').css('position', 'absolute');
+
+		$('#lettercontents').animate(
+			{
+				top: initialLetterPosition
+			},
+			2000,
+			function() {
+				$('#lettercontents').css('position', '');
+			}
+		);
+
+		$('#envelope').animate(
+			{
+				opacity: 0
+			},
+			2000,
+			function() {
+				$('#envelopeback').removeAttr('style');
+				$('#envelopeinner').removeAttr('style');
+
+				$('#envelope').css('display', 'none');
+
+				document.getElementById('envelopefront').onclick = null;
+			}
+		);
+	});
+}
+
+/*
+function layoutTest() {
+	let pageHeight = 0;
+	let subParas = new Array();
+	let maxWidth = Math.floor($('#letter').width() / 210 * 297);
+
+	// Get all the p elements and extract them
+	let paras = $('#letter p').clone();
+	let paraHeights = new Array();
+
+	$('#letter p').each(function() {
+		paraHeights.push($(this).height());
+	});
+
+	// Clear the contents of the article
+	$('#letter').empty();
+
+	for (let i = 0; i < paras.length; i++) {
+		if (pageHeight + paraHeights[i] > maxWidth) {
+			$('#letter').append(
+				$('<div style="border: 5px solid #1C6EA4; height: ' + maxWidth + 'pt"></div>').append(subParas)
+			);
+
+			pageHeight = 0;
+			subParas = new Array();
+		}
+
+		subParas.push(paras[i]);
+		pageHeight += paraHeights[i];
+	}
+}
+*/

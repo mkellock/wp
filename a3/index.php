@@ -1,3 +1,61 @@
+<?php
+
+// Location of the CSV file
+define("CSVURL", "http://titan.csit.rmit.edu.au/~e54061/wp/letters-home.txt");
+
+// Variables used to retrieve and store letters
+$rowCount = 0;
+$letterKeys = array();
+$letters = array();
+$letterYears = array();
+
+// Open a file handle to the CSV file
+if (($handle = fopen(CSVURL, "r")) !== FALSE) {
+
+  // Iterate through the CSV file
+  while (($row = fgetcsv($handle, 0, "\t", "\"")) !== FALSE) {
+
+    // If we're on the first row, grab the keys
+    if ($rowCount == 0) {
+      $letterKeys = $row;
+
+    // Else handle the rows
+    } else {
+      // Populate a temp array for row loading
+      $letterRow = array();
+
+      // Loop through the keys and grab the values
+      for ($i = 0; $i < count($letterKeys); $i++) {
+        $letterRow[$letterKeys[$i]] = $row[$i];
+      }
+
+      // Add the temp row to the array of letters
+      $letters[] = $letterRow;
+    }
+
+    // Iterate the row count
+    $rowCount++;
+  }
+
+  // Close the file handle
+  fclose($handle);
+
+  // Sort the letters by date
+  $dateStart  = array_column($letters, 'DateStart');
+  array_multisort($dateStart, SORT_ASC, $letters);
+
+  // Loop through the letters and populate the years
+  for ($i = 0; $i < count($letters); $i++) {
+    $letterYears[] = date_parse($letters[$i]["DateStart"])["year"];
+  }
+
+  // Only grab unique records
+  $letterYears = array_unique($letterYears);
+
+  // Sort the years
+  sort($letterYears);
+}
+?>
 <!DOCTYPE html>
 <html lang='en'>
    <head>
@@ -182,8 +240,51 @@
          <article id="letters">
             <h1>Letters</h1>
             <p>Select a year:</p>
-            <p class="centeralign"><a href="#letters1914">1914</a> &ndash; <a href="#letters1915">1915</a> &ndash; <a href="#letters1916">1916</a> &ndash; <a href="#letters1917">1917</a> &ndash; <a href="#letters1918">1918</a></p>
+            <p class="centeralign"><?php
+
+  $yearsOutput = "";
+
+  for ($i = 0; $i < count($letterYears); $i++) {
+    $yearsOutput .= "<a href=\"#letters$letterYears[$i]\">$letterYears[$i]</a> &ndash; ";
+  }
+
+  if (strlen($yearsOutput) > 0) {
+    echo substr($yearsOutput, 0, strlen($yearsOutput) - 8);
+  } else {
+    echo "Nothing to show here!";
+  }
+
+?></p>
          </article>
+<?php
+
+  for ($i1 = 0; $i1 < count($letterYears); $i1++) {
+    echo "<article id=\"letters$letterYears[$i1]\">";
+    echo "<h1>Letters &ndash; $letterYears[$i1]</h1>";
+
+    for ($i2 = 0; $i2 < count($letters); $i2++) {
+      if (date_parse($letters[$i2]["DateStart"])["year"] == $letterYears[$i1]) {
+        echo "<p><a href=\"#letter-$i2\">";
+
+        if (strlen($letters[$i2]["Transport"]) > 0) {
+          echo $letters[$i2]["Transport"] . ", ";
+        }
+
+        if (strlen($letters[$i2]["Town"]) > 0) {
+          echo $letters[$i2]["Town"] . ", ";
+        }
+
+        if (strlen($letters[$i2]["Country"]) > 0) {
+          echo $letters[$i2]["Country"] . ", ";
+        }
+        
+        echo date("F jS Y", strtotime($letters[$i2]["DateStart"])) . "</a></p>";
+      }
+    }
+
+    echo "</article>";
+  }
+?>
          <article id="letters1914">
             <h1>Letters &ndash; 1914</h1>
             <p>These letters have not been populated, please select a different year</p>

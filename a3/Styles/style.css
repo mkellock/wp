@@ -260,7 +260,7 @@ div.parallax {
 	background-position: center;
 	background-repeat: no-repeat;
 	background-size: cover;
-	box-shadow: 0px 0px 10px 10px var(--deep-champagne) inset;
+	box-shadow: 0px 0px 10px 10px var(--sage) inset;
 	border-radius: 20px;
 }
 

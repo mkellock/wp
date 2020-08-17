@@ -93,10 +93,10 @@ if (($handle = fopen(CSVURL, "r")) !== FALSE) {
          <div id="envelope">
             <div id="envelopeinner">
                <div id="envelopefront">
-                  <img src="Images/envelopefront.png" alt="Front of letter" class="envelopeimg"> 
+                  <img src="Images/envelopefront.jpg" alt="Front of letter" class="envelopeimg"> 
                   <p class="handwriting">Please click the letter to open it</p>
                </div>
-               <div id="envelopeback"> <img src="Images/envelopeback.png" alt="Back of letter" class="envelopeimg"> </div>
+               <div id="envelopeback"> <img src="Images/envelopeback.jpg" alt="Back of letter" class="envelopeimg"> </div>
             </div>
          </div>
          </div>
@@ -299,6 +299,9 @@ for ($i1 = 0; $i1 < count($letterYears); $i1++) {
   echo "</article>";
 }
 
+// Parallax counter
+$parallax_counter = 1;
+
 // Loop through all the letters
 for ($i = 0; $i < count($letters); $i++) {
   // Print the article header
@@ -326,9 +329,49 @@ for ($i = 0; $i < count($letters); $i++) {
   // Break the content up over lines
   $text_split = explode("\n", $letters[$i]["Content"]);
 
+  // Initialise the paragraph counters
+  $para_counter = 0;
+  $last_para = 0;
+
   // Output the lines as seperate paragraphs
   for ($i2 = 0; $i2 < count($text_split); $i2++) {
     echo "<p class=\"handwriting\">" . htmlentities($text_split[$i2], ENT_HTML5) . "</p>";
+
+    // If the paragraph has a length of over 50 characters, count it as a paragraph (not a date or a signoff)
+    if (strlen($text_split[$i2]) > 50) {
+      $para_counter++;
+    }
+
+    // Show a parallax image after every paragraph (unless we're at the start or end of a letter)
+    if ($para_counter > $last_para && $i2 + 1 < count($text_split)) {
+      // Variable to see if the following paragraphs are full paragraphs (i.e. are we at the end of the letter)
+      $atEnd = TRUE;
+
+      // Loop through the remaining paragraphs and see if any are full paragraphs
+      for ($i3 = $i2 + 1; $i3 < count($text_split); $i3++) {
+        if (strlen($text_split[$i3]) > 50) {
+          $atEnd = FALSE;
+          break;
+        }
+      }
+
+      // If we're not at the end of the letter
+      if (!$atEnd) {
+        // Add the parallax effect
+        echo "<div class=\"parallax parallax$para_counter\"></div>";
+
+        // Specify the last paragraph a parallax effect was applied
+        $last_para = $para_counter;
+
+        // Add to the parallax counter
+        $parallax_counter++;
+
+        // If we're at 16, loop back to one
+        if ($parallax_counter == 16) {
+          $parallax_counter = 1;
+        }
+      }
+    }
   }
 
   // Close off the article

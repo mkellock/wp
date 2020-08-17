@@ -93,10 +93,10 @@ if (($handle = fopen(CSVURL, "r")) !== FALSE) {
          <div id="envelope">
             <div id="envelopeinner">
                <div id="envelopefront">
-                  <img src="Images/envelopefront.png" alt="Front of letter" class="envelopeimg"> 
+                  <img src="Images/envelopefront.jpg" alt="Front of letter" class="envelopeimg"> 
                   <p class="handwriting">Please click the letter to open it</p>
                </div>
-               <div id="envelopeback"> <img src="Images/envelopeback.png" alt="Back of letter" class="envelopeimg"> </div>
+               <div id="envelopeback"> <img src="Images/envelopeback.jpg" alt="Back of letter" class="envelopeimg"> </div>
             </div>
          </div>
          </div>

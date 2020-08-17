@@ -1,4 +1,6 @@
 <?php
+// Including functionality from PHP 5.5
+include 'array_column.php';
 
 // Location of the CSV file
 define("CSVURL", "http://titan.csit.rmit.edu.au/~e54061/wp/letters-home.txt");

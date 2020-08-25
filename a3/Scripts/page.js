@@ -166,7 +166,7 @@ function submitForm() {
 	};
 
 	// Open the page and send the form contents
-	xhr.open('POST', 'tools.php', true);
+	xhr.open('POST', 'formsubmit.php', true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.send(
 		'name=' +
@@ -257,10 +257,13 @@ function showLetter(hash) {
 }
 
 function openLetter(hash) {
+	// Clear the page turn events
+	$('.pageturn1, .pageturn2').click(null);
+
 	// Grab the letter
 	let letter = $('#' + hash);
 
-	/* Rotate the envelope and animate it off stage */
+	// Rotate the envelope and animate it off stage
 	$('#envelopeinner').css('transform', 'rotateY(180deg)');
 
 	$('#envelope').delay(1000).animate({
@@ -269,22 +272,43 @@ function openLetter(hash) {
 		height: (window.innerWidth >= 920 ? 920 : window.innerWidth) * 0.54,
 		left: (window.innerWidth - (window.innerWidth >= 920 ? 920 : window.innerWidth)) / 2
 	}, 1000, function() {
-		/* Display the letter */
+		// Display the letter
 		$('.lettercontents', letter).css('display', 'flex');
 
-		/* Switch focus to the letter contents */
+		// Switch focus to the letter contents
 		$('.lettercontents', letter).focus();
 
-		/* Grab initial positions and set initial variables */
+		// Grab initial positions and set initial variables
 		let initialLetterPosition = $('.lettercontents', letter).position().top;
 		let initialLetterWidth = $('.lettercontents', letter).width();
 
-		/* Set the height of the letter contents and position it off stage */
+		if (initialLetterWidth > 900) initialLetterWidth = 850;
+
+		// Set the height of the letter contents and position it off stage (A4 paper size)
 		$('.lettercontents', letter).css('width', initialLetterWidth);
+		$('.lettercontents', letter).css('height', initialLetterWidth * 1.4);
 		$('.lettercontents', letter).css('top', window.innerHeight);
 
-		/* Set the letter contents to an absolute position so we can animate it */
+		// Set the article height
+		$(letter).animate({
+			height: initialLetterWidth * 1.4 + 150
+		});
+
+		// Set the letter contents to an absolute position so we can animate it
 		$('.lettercontents', letter).css('position', 'absolute');
+
+		// Add the pageturn events
+		$('.pageturn1', letter).click(function() {
+			// Rotate the envelope and animate it off stage
+			$('.letterinner', letter).css('transform', 'rotateY(180deg)');
+			$('.pageturn1', letter).delay(500).hide(0);
+		});
+
+		$('.pageturn2', letter).click(function() {
+			// Rotate the envelope and animate it off stage
+			$('.letterinner', letter).css('transform', '');
+			$('.pageturn1', letter).delay(500).show(0);
+		});
 
 		$('.lettercontents', letter).animate(
 			{

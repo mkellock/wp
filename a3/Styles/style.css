@@ -249,81 +249,6 @@ p.handwriting {
 	font-size: 16pt;
 }
 
-/* Parallax elements */
-div.parallax {
-	/* Set a specific height */
-	height: 250px;
-	width: 100%;
-
-	/* Create the parallax scrolling effect */
-	background-attachment: fixed;
-	background-position: center;
-	background-repeat: no-repeat;
-	background-size: cover;
-	box-shadow: 0px 0px 10px 10px var(--sage) inset;
-	border-radius: 20px;
-}
-
-div.parallax1 {
-	background-image: url("../Images/Parallax/bg1.jpg");
-}
-
-div.parallax2 {
-	background-image: url("../Images/Parallax/bg2.jpg");
-}
-
-div.parallax3 {
-	background-image: url("../Images/Parallax/bg3.jpg");
-}
-
-div.parallax4 {
-	background-image: url("../Images/Parallax/bg4.jpg");
-}
-
-div.parallax5 {
-	background-image: url("../Images/Parallax/bg5.jpg");
-}
-
-div.parallax6 {
-	background-image: url("../Images/Parallax/bg6.jpg");
-}
-
-div.parallax7 {
-	background-image: url("../Images/Parallax/bg7.jpg");
-}
-
-div.parallax8 {
-	background-image: url("../Images/Parallax/bg8.jpg");
-}
-
-div.parallax9 {
-	background-image: url("../Images/Parallax/bg9.jpg");
-}
-
-div.parallax10 {
-	background-image: url("../Images/Parallax/bg10.jpg");
-}
-
-div.parallax11 {
-	background-image: url("../Images/Parallax/bg11.jpg");
-}
-
-div.parallax12 {
-	background-image: url("../Images/Parallax/bg12.jpg");
-}
-
-div.parallax13 {
-	background-image: url("../Images/Parallax/bg13.jpg");
-}
-
-div.parallax14 {
-	background-image: url("../Images/Parallax/bg14.jpg");
-}
-
-div.parallax15 {
-	background-image: url("../Images/Parallax/bg15.jpg");
-}
-
 /* Responsive behaviour for mobile screens */
 @media only screen and (max-width: 900px) {
 	nav {
@@ -507,20 +432,31 @@ form div span {
 	padding: 2vw;
 	box-shadow: 4px 4px 4px var(--charcoal);
 	padding: 2vw;
-	height: 600px;
 	display: none;
 	background-color: var(--sage);
+	position: absolute;
+	/* Safari */
+	-webkit-backface-visibility: hidden;
+	backface-visibility: hidden;
+	width: min(850px, 95%);
+}
+
+.letterinner {
+	transition: transform 1s;
+	transform-style: preserve-3d;
+}
+
+.letterback {
+	transform: rotateY(180deg);
 }
 
 .lettersubcontents {
-	overflow-y: scroll;
 	overflow-x: hidden;
 	padding: 2vw;
 }
 
 #envelope {
 	width: min(90%, 600px);
-	min-width: min(90%, 600px);
 	perspective: 1000px;
 	height: 500px;
 	min-height: calc(50vw * 0.54);
@@ -556,4 +492,122 @@ form div span {
 .envelopeimg {
 	width: 100%;
 	box-shadow: 4px 4px 4px var(--charcoal);
+}
+
+.pageturn1 {
+	width: 83px;
+	height: 75px;
+	position: absolute;
+	top: -1px;
+	right: -10px;
+	background: url(../Images/pagecorner1.gif) center left no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+.pageturn2 {
+	width: 75px;
+	height: 75px;
+	position: absolute;
+	top: -1px;
+	left: -1px;
+	background: url(../Images/pagecorner2.gif) center left no-repeat;
+	background-size: cover;
+	cursor: pointer;
+}
+
+/* Parallax elements */
+div.letterimage {
+	/* Set a specific height */
+	height: min(400px, 40vw);
+	width: min(600px, 60vw);
+
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
+	border: solid 1vw var(--deep-champagne);
+	box-shadow: 4px 4px 4px var(--charcoal);
+
+	position: absolute;
+}
+
+div.letterimagepos1 {
+	z-index: 1;
+	top: min(10vw, 100px);
+	left: 7.5vw;
+	transform: rotate(-15deg);
+}
+
+div.letterimagepos2 {
+	z-index: 2;
+	top: min(45vw, 400px);
+	right: 7.5vw;
+	transform: rotate(15deg);
+}
+
+div.letterimagepos3 {
+	z-index: 3;
+	top: min(70vw, 650px);
+	left: 7.5vw;
+	transform: rotate(-5deg);
+}
+
+div.letterimage1 {
+	background-image: url("../Images/Parallax/bg1.jpg");
+}
+
+div.letterimage2 {
+	background-image: url("../Images/Parallax/bg2.jpg");
+}
+
+div.letterimage3 {
+	background-image: url("../Images/Parallax/bg3.jpg");
+}
+
+div.letterimage4 {
+	background-image: url("../Images/Parallax/bg4.jpg");
+}
+
+div.letterimage5 {
+	background-image: url("../Images/Parallax/bg5.jpg");
+}
+
+div.letterimage6 {
+	background-image: url("../Images/Parallax/bg6.jpg");
+}
+
+div.letterimage7 {
+	background-image: url("../Images/Parallax/bg7.jpg");
+}
+
+div.letterimage8 {
+	background-image: url("../Images/Parallax/bg8.jpg");
+}
+
+div.letterimage9 {
+	background-image: url("../Images/Parallax/bg9.jpg");
+}
+
+div.letterimage10 {
+	background-image: url("../Images/Parallax/bg10.jpg");
+}
+
+div.letterimage11 {
+	background-image: url("../Images/Parallax/bg11.jpg");
+}
+
+div.letterimage12 {
+	background-image: url("../Images/Parallax/bg12.jpg");
+}
+
+div.letterimage13 {
+	background-image: url("../Images/Parallax/bg13.jpg");
+}
+
+div.letterimage14 {
+	background-image: url("../Images/Parallax/bg14.jpg");
+}
+
+div.letterimage15 {
+	background-image: url("../Images/Parallax/bg15.jpg");
 }

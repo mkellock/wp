@@ -166,7 +166,7 @@ function submitForm() {
 	};
 
 	// Open the page and send the form contents
-	xhr.open('POST', 'tools.php', true);
+	xhr.open('POST', 'formsubmit.php', true);
 	xhr.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
 	xhr.send(
 		'name=' +

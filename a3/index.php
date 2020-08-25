@@ -322,8 +322,13 @@ for ($i = 0; $i < count($letters); $i++) {
   
   echo date("F jS Y", strtotime($letters[$i]["DateStart"])) . "</h1>";
 
-  // Print the article body
-  echo "<div class=\"lettercontents\">";
+  // Letter container
+  echo "<div class=\"letter\">";
+  echo "<div class=\"letterinner\">";
+
+  // Print the letter content
+  echo "<div class=\"lettercontents letterfront\">";
+  echo "<div class=\"pageturn1\"></div>";
   echo "<div class=\"lettersubcontents\">";
 
   // Break the content up over lines
@@ -374,9 +379,25 @@ for ($i = 0; $i < count($letters); $i++) {
     }
   }
 
-  // Close off the article
+  // Close off the letter front page
   echo "</div>";
   echo "</div>";
+
+  // Prints the front page
+  echo "<div class=\"lettercontents letterback\">";
+  echo "<div class=\"pageturn2\"></div>";
+
+  //echo "<p>blah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blah...</p>";
+  
+  echo "<p>&nbsp;</p>";
+
+  // Close off the letter back page
+  echo "</div>";
+
+  // Close off the container
+  echo "</div>";
+  echo "</div>";
+
   echo "</article>";
 }
 ?>

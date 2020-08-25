@@ -299,8 +299,8 @@ for ($i1 = 0; $i1 < count($letterYears); $i1++) {
   echo "</article>";
 }
 
-// Parallax counter
-$parallax_counter = 1;
+// Image counter
+$image_counter = 1;
 
 // Loop through all the letters
 for ($i = 0; $i < count($letters); $i++) {
@@ -341,42 +341,6 @@ for ($i = 0; $i < count($letters); $i++) {
   // Output the lines as seperate paragraphs
   for ($i2 = 0; $i2 < count($text_split); $i2++) {
     echo "<p class=\"handwriting\">" . htmlentities($text_split[$i2], ENT_HTML5) . "</p>";
-
-    // If the paragraph has a length of over 50 characters, count it as a paragraph (not a date or a signoff)
-    if (strlen($text_split[$i2]) > 50) {
-      $para_counter++;
-    }
-
-    // Show a parallax image after every paragraph (unless we're at the start or end of a letter)
-    if ($para_counter > $last_para && $i2 + 1 < count($text_split)) {
-      // Variable to see if the following paragraphs are full paragraphs (i.e. are we at the end of the letter)
-      $atEnd = TRUE;
-
-      // Loop through the remaining paragraphs and see if any are full paragraphs
-      for ($i3 = $i2 + 1; $i3 < count($text_split); $i3++) {
-        if (strlen($text_split[$i3]) > 50) {
-          $atEnd = FALSE;
-          break;
-        }
-      }
-
-      // If we're not at the end of the letter
-      if (!$atEnd) {
-        // Add the parallax effect
-        echo "<div class=\"parallax parallax$para_counter\"></div>";
-
-        // Specify the last paragraph a parallax effect was applied
-        $last_para = $para_counter;
-
-        // Add to the parallax counter
-        $parallax_counter++;
-
-        // If we're at 16, loop back to one
-        if ($parallax_counter == 16) {
-          $parallax_counter = 1;
-        }
-      }
-    }
   }
 
   // Close off the letter front page
@@ -387,9 +351,18 @@ for ($i = 0; $i < count($letters); $i++) {
   echo "<div class=\"lettercontents letterback\">";
   echo "<div class=\"pageturn2\"></div>";
 
-  //echo "<p>blah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blahblah blah blah...</p>";
-  
-  echo "<p>&nbsp;</p>";
+   for ($i2 = 1; $i2 <= 3; $i2++) {
+      // Add the letter image
+      echo "<div class=\"letterimage letterimage$image_counter letterimagepos$i2\"></div>";
+
+      // Add to the image counter
+      $image_counter++;
+
+      // If we're at 16, loop back to one
+      if ($image_counter == 16) {
+         $image_counter = 1;
+      }
+   }
 
   // Close off the letter back page
   echo "</div>";
